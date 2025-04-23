@@ -5,7 +5,7 @@ export const catApi = mockApi.injectEndpoints({
   endpoints: (build) => ({
     getCatAsync: build.query<CatType[], GetCatParams>({
       query: (body) => ({
-        url: `${process.env.MOCK_HOST}search?limit=${body.limit}&api_key=${process.env.APIKEY}`,
+        url: `mock/search?limit=${body.limit}&api_key=${process.env.APIKEY}`,
         method: 'GET',
       }),
     }),
