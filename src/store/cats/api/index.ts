@@ -7,7 +7,7 @@ export const catApi = mockApi.injectEndpoints({
       query: (body) => ({
         url: `proxy/search?limit=${body.limit}`,
         headers: {
-          'x-api-key': process.env.APIKEY
+          'x-api-key': process.env.APIKEY,
         },
         method: 'GET',
       }),
