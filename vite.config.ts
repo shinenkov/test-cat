@@ -5,10 +5,10 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   const mockHOST = env.MOCK_HOST
   const proxyConfigLocal = {
-    '/mock': {
+    '/proxy': {
       target: mockHOST,
       changeOrigin: true,
-      rewrite: (path: string ) => path.replace(/\/mock/, '')
+      rewrite: (path: string ) => path.replace(/\/proxy/, '')
     },
   }
 
@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => {
       "process.env": env,
     },
     server: {
-      port: 3001,
+      port: env.PORT as unknown as number,
       proxy: proxyConfigLocal
     }
   }
